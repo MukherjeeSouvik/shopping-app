@@ -13,7 +13,7 @@ spec:
       - name: product-orch-deploy
         image: souvikmukherjeedocker/shopping-app_product-orch-svc:v1
         ports:
-          name: shp-pr-orch
+        - name: shp-pr-orch
           containerPort: 8081
         livenessProbe:
           httpGet:

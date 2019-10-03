@@ -13,7 +13,7 @@ spec:
       - name: product-stock-deploy
         image: souvikmukherjeedocker/shopping-app_product-stock-svc:v1
         ports:
-          name: shp-pr-stock
+        - name: shp-pr-stock
           containerPort: 8080
         livenessProbe:
           httpGet:
