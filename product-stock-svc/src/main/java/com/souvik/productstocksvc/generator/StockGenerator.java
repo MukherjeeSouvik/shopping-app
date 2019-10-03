@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +20,7 @@ public class StockGenerator {
 	@Autowired
 	private StockRepository stockRepository;
 	
-	@Transactional
+	//@Transactional
 	@PostConstruct
 	void init() {
 		log.info("Generating Stock Data");

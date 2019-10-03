@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: product-orch-deploy
-        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v1
+        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v2
         ports:
         - name: shp-pr-orch
           containerPort: 8081

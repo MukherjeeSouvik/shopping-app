@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: product-stock-deploy
-        image: souvikmukherjeedocker/shopping-app_product-stock-svc:v1
+        image: souvikmukherjeedocker/shopping-app_product-stock-svc:v2
         ports:
         - name: shp-pr-stock
           containerPort: 8080
