@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-stock-svc
+  labels:
+    name: product-stock-svc
+spec:
+  ports:
+  - port: 8080
+    targetPort: shp-pr-stock
+    protocol: TCP
+  selector:
+    app: product-stock-deploy
+  type: LoadBalancer

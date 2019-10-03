@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-orch-svc
+  labels:
+    name: product-orch-svc
+spec:
+  ports:
+  - port: 8081
+    targetPort: shp-pr-orch
+    protocol: TCP
+  selector:
+    app: product-orch-deploy
+  type: LoadBalancer
