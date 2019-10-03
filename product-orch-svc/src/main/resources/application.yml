@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: product-orch-svc
+  main:
+    banner-mode: "off"
+
+server:
+  port: 8081
+  servlet:
+    context-path: /product-orch-svc
+
+services:
+  stockapi:
+    schema: http
+    host: 127.0.0.1
+    port: 8080
+    connectionTimeout: 4000
+    readTimeout: 6000
+    http-headers:
+      "[Content-Type]": application/json
+    base-path: /product-stock-svc
+    path: /stocks
+    
