@@ -7,8 +7,9 @@ metadata:
 spec:
   ports:
   - port: 8080
-    targetPort: shp-pr-stock
+    nodePort: 31515
+    targetPort: 8080
     protocol: TCP
   selector:
     app: product-stock-deploy
-  type: LoadBalancer
+  type: NodePort

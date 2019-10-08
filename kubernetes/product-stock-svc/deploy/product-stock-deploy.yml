@@ -13,17 +13,16 @@ spec:
       - name: product-stock-deploy
         image: souvikmukherjeedocker/shopping-app_product-stock-svc:v2
         ports:
-        - name: shp-pr-stock
-          containerPort: 8080
-        livenessProbe:
-          httpGet:
-            path: /liveness
-            port: shp-pr-stock
-          initialDelaySeconds: 15
-          timeoutSeconds: 30
-        readinessProbe:
-          httpGet:
-            path: /readiness
-            port: shp-pr-stock
-          initialDelaySeconds: 15
-          timeoutSeconds: 30
+        - containerPort: 8080
+        # livenessProbe:
+        #   httpGet:
+        #     path: /liveness
+        #     port: 8080
+        #   initialDelaySeconds: 15
+        #   timeoutSeconds: 30
+        # readinessProbe:
+        #   httpGet:
+        #     path: /readiness
+        #     port: 8080
+        #   initialDelaySeconds: 15
+        #   timeoutSeconds: 30

@@ -1,12 +1,15 @@
 package com.souvik.productstocksvc.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Entity
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,7 +17,7 @@ import lombok.Setter;
 @Builder
 public class Stock {
 	
-//	@Id
+	@Id
 	private String productId;
 	private String sku;
 	private Long quantity;

@@ -12,7 +12,8 @@ server:
 services:
   stockapi:
     schema: http
-    host: 127.0.0.1
+#    host: 127.0.0.1
+    host: product-stock-svc
     port: 8080
     connectionTimeout: 4000
     readTimeout: 6000
