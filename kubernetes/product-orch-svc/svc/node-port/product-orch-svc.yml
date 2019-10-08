@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-orch-node-port-svc
+  labels:
+    name: product-orch-node-port-svc
+spec:
+  ports:
+  - port: 8081
+    nodePort: 31002
+    targetPort: 8081
+    protocol: TCP
+  selector:
+    app: product-orch-deploy
+  type: NodePort
