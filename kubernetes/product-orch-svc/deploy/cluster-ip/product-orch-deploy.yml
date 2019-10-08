@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: product-orch-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: product-orch-deploy
+    spec:
+      containers:
+      - name: product-orch-deploy
+        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v2
+        ports:
+        - containerPort: 8081
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: cluster-ip-configuration
+        - name: STOCK_API_SCHEMA
+          value: http
+        - name: STOCK_API_HOST
+          value: product-stock-cluster-ip-svc
+        - name: STOCK_API_PORT
+          value: '8080'

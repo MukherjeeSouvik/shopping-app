@@ -26,7 +26,7 @@ public class RestClientAction<T> {
 	
 	public T execute(BaseConfiguration configuration, RestTemplate template, HttpEntity<?> httpEntity, HttpMethod httpMethod,
 			String path, String requestParams, String pathParam, ParameterizedTypeReference<T> responseType) throws ProductOrchException {
-		log.info("Invoking rest client call");
+		log.info("Creating rest client call with configuration={}", configuration);
 		ResponseEntity<T> responseEntity = null;
 		try {
 			StringBuilder file = new StringBuilder(configuration.getBasePath()).append(path);

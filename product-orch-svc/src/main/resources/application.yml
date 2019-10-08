@@ -21,3 +21,13 @@ services:
     base-path: /product-stock-svc
     path: /stocks
     
+---
+spring:
+  profiles: cluster-ip-configuration
+  
+services:
+  stockapi:
+    schema: ${STOCK_API_SCHEMA}
+    host: ${STOCK_API_HOST}
+    port: ${STOCK_API_PORT}
+    

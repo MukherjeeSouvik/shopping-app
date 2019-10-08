@@ -8,6 +8,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.souvik.productorchsvc.util.AppConstants;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 public class RestTemplateConfig {
 	
@@ -16,6 +19,7 @@ public class RestTemplateConfig {
 	
 	@Bean(name = AppConstants.STOCK_TEMPLATE)
 	public RestTemplate stockRestTemplate() {
+		log.info("Creating Stock Api Template with parameters={}", stockApiConfiguration);
 		SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
 		requestFactory.setConnectTimeout(stockApiConfiguration.getConnectionTimeout());
 		requestFactory.setReadTimeout(stockApiConfiguration.getReadTimeout());
