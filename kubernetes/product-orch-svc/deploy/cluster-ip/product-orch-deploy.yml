@@ -11,9 +11,9 @@ spec:
     spec:
       containers:
       - name: product-orch-deploy
-        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v2
+        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v3
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: cluster-ip-configuration
@@ -22,4 +22,10 @@ spec:
         - name: STOCK_API_HOST
           value: product-stock-cluster-ip-svc
         - name: STOCK_API_PORT
+          value: '8080'
+        - name: PRODUCT_API_SCHEMA
+          value: http
+        - name: PRODUCT_API_HOST
+          value: product-detail-cluster-ip-svc
+        - name: PRODUCT_API_PORT
           value: '8080'

@@ -13,9 +13,9 @@ import lombok.ToString;
 @Setter
 @ToString
 @Configuration
-@ConfigurationProperties(prefix = "services.stock")
-public class StockApiConfiguration implements BaseConfiguration {
-	
+@ConfigurationProperties(prefix = "services.pd")
+public class ProductApiConfiguration implements BaseConfiguration {
+
 	private String schema;
 	private String host;
 	private int port;
@@ -24,5 +24,4 @@ public class StockApiConfiguration implements BaseConfiguration {
 	private String basePath;
 	private Map<String, String> httpHeaders;
 	private String path;
-
 }

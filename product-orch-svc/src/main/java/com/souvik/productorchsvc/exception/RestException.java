@@ -1,13 +1,13 @@
 package com.souvik.productorchsvc.exception;
 
-public class RestClientException extends Exception {
+public class RestException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public RestClientException(String message) {
+	public RestException(String message) {
 		super(message);
 	}
 	

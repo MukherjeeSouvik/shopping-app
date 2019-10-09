@@ -16,24 +16,24 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.souvik.productorchsvc.bean.ProductDetails;
 import com.souvik.productorchsvc.bean.Stock;
-import com.souvik.productorchsvc.config.StockApiConfiguration;
+import com.souvik.productorchsvc.config.ProductApiConfiguration;
 import com.souvik.productorchsvc.exception.ProductOrchException;
 import com.souvik.productorchsvc.repository.action.RestAction;
 import com.souvik.productorchsvc.util.AppConstants;
 
 @Component
-public class StockRepository {
+public class ProductDetailsRepository {
 	
 	@Autowired
-	private StockApiConfiguration configuration;
-	
+	private ProductApiConfiguration configuration;
 	@SuppressWarnings("rawtypes")
 	@Autowired
 	private RestAction restAction;
 	
 	@Autowired
-	@Qualifier(AppConstants.STOCK_TEMPLATE)
+	@Qualifier(AppConstants.PD_TEMPLATE)
 	private RestTemplate template;
 	
 	private HttpEntity<?> httpEntity;
@@ -51,27 +51,24 @@ public class StockRepository {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Stock> getStocks() throws ProductOrchException {
-		return (List<Stock>) restAction
+	public List<ProductDetails> getProductDetails() throws ProductOrchException {
+		return (List<ProductDetails>) restAction
 					.call(configuration, template, httpEntity, HttpMethod.GET, 
 							configuration.getPath(), null, null,
-							new ParameterizedTypeReference<List<Stock>>() {});
+							new ParameterizedTypeReference<List<ProductDetails>>() {});
 	}
-	
-	public Map<String, Stock> getStockMap() throws ProductOrchException {
-		return getStocks()
+	public Map<String, ProductDetails> getProductDetailsMap() throws ProductOrchException {
+		return getProductDetails()
 				.stream()
-				.collect(Collectors.toMap(Stock::getProductId, Function.identity()));
+				.collect(Collectors.toMap(ProductDetails::getProductId, Function.identity()));
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Stock getStockById(String productId) throws ProductOrchException {
-		return (Stock) restAction
+	public ProductDetails getProductById(String productId) throws ProductOrchException {
+		return (ProductDetails) restAction
 					.call(configuration, template, httpEntity, HttpMethod.GET, 
 							configuration.getPath(), null, productId,
-							new ParameterizedTypeReference<Stock>() {});
+							new ParameterizedTypeReference<ProductDetails>() {});
 	}
-	
-	
 
 }

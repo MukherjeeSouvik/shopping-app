@@ -5,12 +5,12 @@ spring:
     banner-mode: "off"
 
 server:
-  port: 8081
+  port: 8080
   servlet:
     context-path: /product-orch-svc
 
 services:
-  stockapi:
+  stock:
     schema: http
     host: localhost
     port: 8080
@@ -20,14 +20,28 @@ services:
       "[Content-Type]": application/json
     base-path: /product-stock-svc
     path: /stocks
+  pd:
+    schema: http
+    host: localhost
+    port: 8080
+    connectionTimeout: 4000
+    readTimeout: 6000
+    http-headers:
+      "[Content-Type]": application/json
+    base-path: /product-detail-svc
+    path: /products
     
 ---
 spring:
   profiles: cluster-ip-configuration
   
 services:
-  stockapi:
+  stock:
     schema: ${STOCK_API_SCHEMA}
     host: ${STOCK_API_HOST}
     port: ${STOCK_API_PORT}
+  pd:
+    schema: ${PRODUCT_API_SCHEMA}
+    host: ${PRODUCT_API_HOST}
+    port: ${PRODUCT_API_PORT}
     

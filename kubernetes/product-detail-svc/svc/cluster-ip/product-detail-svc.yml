@@ -1,14 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: product-orch-load-balancer-svc
+  name: product-detail-cluster-ip-svc
   labels:
-    name: product-orch-load-balancer-svc
+    name: product-detail-cluster-ip-svc
 spec:
   ports:
   - port: 8080
     targetPort: 8080
     protocol: TCP
   selector:
-    app: product-orch-deploy
-  type: LoadBalancer
+    app: product-detail-deploy
