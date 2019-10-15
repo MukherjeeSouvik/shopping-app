@@ -17,9 +17,9 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: cluster-ip-configuration
-        - name: STOCK_ORCH_SCHEMA
+        - name: PRODUCT_ORCH_SCHEMA
           value: http
-        - name: STOCK_ORCH_HOST
-          value: product-orch-cluster-ip-svc
-        - name: STOCK_ORCH_PORT
+        - name: PRODUCT_ORCH_HOST
+          value: product-orch-load-balancer-svc
+        - name: PRODUCT_ORCH_PORT
           value: '8080'
