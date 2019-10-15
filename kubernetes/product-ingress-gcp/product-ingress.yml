@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: product-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /product-frontend-svc/products
+        backend:
+          serviceName: product-frontend-load-balancer-svc
+          servicePort: 8080
+      - path: /product-orch-svc/products
+        backend:
+          serviceName: product-orch-load-balancer-svc
+          servicePort: 8080
