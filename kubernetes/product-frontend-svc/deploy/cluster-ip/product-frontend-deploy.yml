@@ -20,6 +20,6 @@ spec:
         - name: PRODUCT_ORCH_SCHEMA
           value: http
         - name: PRODUCT_ORCH_HOST
-          value: product-orch-load-balancer-svc
+          value: product-orch-cluster-ip-svc
         - name: PRODUCT_ORCH_PORT
           value: '8080'
