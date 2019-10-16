@@ -21,7 +21,7 @@ public class ProductApiConfiguration implements BaseConfiguration {
 	private int port;
 	private int connectionTimeout;
 	private int readTimeout;
-	private String basePath;
+	private String basePath = "";
 	private Map<String, String> httpHeaders;
 	private String path;
 

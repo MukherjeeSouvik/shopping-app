@@ -6,8 +6,8 @@ spring:
 
 server:
   port: 8080
-  servlet:
-    context-path: /product-orch-svc
+#  servlet:
+#    context-path: /product-orch-svc
 
 services:
   stock:
