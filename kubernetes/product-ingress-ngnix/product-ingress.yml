@@ -4,16 +4,16 @@ metadata:
   name: product-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    # nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /product-frontend-svc/products
+      - path: /?(.*)
         backend:
           serviceName: product-frontend-cluster-ip-svc
           servicePort: 8080
-      - path: /product-orch-svc/products
+      - path: /api/?(.*)
         backend:
           serviceName: product-orch-cluster-ip-svc
           servicePort: 8080

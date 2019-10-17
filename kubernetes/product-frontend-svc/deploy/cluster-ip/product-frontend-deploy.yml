@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: product-frontend-deploy
-        image: souvikmukherjeedocker/shopping-app_product-frontend-svc:v1
+        image: souvikmukherjeedocker/shopping-app_product-frontend-svc:v2
         ports:
         - containerPort: 8080
         env:
