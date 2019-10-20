@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: product-frontend-svc
+  main:
+    banner-mode: "off"
+
+server:
+  port: 8080
+#  servlet:
+#    context-path: /product-frontend-svc
+
+services:
+  productorch:
+    schema: http
+    host: localhost
+    port: 8080
+    connectionTimeout: 4000
+    readTimeout: 6000
+    http-headers:
+      "[Content-Type]": application/json
+#    base-path: /product-orch-svc
+    path: /products
+    
+---
+spring:
+  profiles: cluster-ip-configuration
+  
+services:
+  productorch:
+    schema: ${PRODUCT_ORCH_SCHEMA}
+    host: ${PRODUCT_ORCH_HOST}
+    port: ${PRODUCT_ORCH_PORT}
+    
+

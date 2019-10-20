@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-frontend-node-port-svc
+  labels:
+    name: product-frontend-node-port-svc
+spec:
+  ports:
+  - port: 8080
+    nodePort: 31003
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: product-frontend-deploy
+  type: NodePort

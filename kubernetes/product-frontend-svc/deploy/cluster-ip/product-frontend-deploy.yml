@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: product-frontend-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: product-frontend-deploy
+    spec:
+      containers:
+      - name: product-frontend-deploy
+        image: souvikmukherjeedocker/shopping-app_product-frontend-svc:v2
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: cluster-ip-configuration
+        - name: PRODUCT_ORCH_SCHEMA
+          value: http
+        - name: PRODUCT_ORCH_HOST
+          value: product-orch-cluster-ip-svc
+        - name: PRODUCT_ORCH_PORT
+          value: '8080'
