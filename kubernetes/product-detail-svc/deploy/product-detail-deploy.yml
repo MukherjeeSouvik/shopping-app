@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: product-detail-deploy
-        image: souvikmukherjeedocker/shopping-app_product-detail-svc:v1
+        image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-detail-svc:v1
         ports:
         - containerPort: 8080

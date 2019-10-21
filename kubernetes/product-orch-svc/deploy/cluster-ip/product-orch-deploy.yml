@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: product-orch-deploy
-        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v5
+        image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-orch-svc:v1
         ports:
         - containerPort: 8080
         env:
