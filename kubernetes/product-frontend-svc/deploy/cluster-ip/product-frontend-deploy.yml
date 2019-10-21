@@ -11,7 +11,8 @@ spec:
     spec:
       containers:
       - name: product-frontend-deploy
-        image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-frontend-svc:v1
+        # image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-frontend-svc:v1
+        image: souvikmukherjeedocker/shopping-app_product-frontend-svc:v1
         ports:
         - containerPort: 8080
         env:

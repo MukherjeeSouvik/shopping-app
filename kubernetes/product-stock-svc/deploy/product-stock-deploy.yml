@@ -11,7 +11,8 @@ spec:
     spec:
       containers:
       - name: product-stock-deploy
-        image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-stock-svc:v1
+        # image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-stock-svc:v1
+        image: souvikmukherjeedocker/shopping-app_product-stock-svc:v1
         ports:
         - containerPort: 8080
         # livenessProbe:
