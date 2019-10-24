@@ -1,17 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: product-frontend-deploy
+  name: product-frontend-deployment
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: product-frontend-deploy
+        app: product-frontend-deployment
     spec:
       containers:
-      - name: product-frontend-deploy
-        # image: docker.pkg.github.com/mukherjeesouvik/shopping-app/product-frontend-svc:v1
+      - name: product-frontend-deployment
         image: souvikmukherjeedocker/shopping-app_product-frontend-svc:v1
         ports:
         - containerPort: 8080
@@ -21,6 +20,6 @@ spec:
         - name: PRODUCT_ORCH_SCHEMA
           value: http
         - name: PRODUCT_ORCH_HOST
-          value: product-orch-cluster-ip-svc
+          value: product-orch-service
         - name: PRODUCT_ORCH_PORT
           value: '8080'

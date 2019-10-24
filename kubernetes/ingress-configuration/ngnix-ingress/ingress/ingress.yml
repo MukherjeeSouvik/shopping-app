@@ -11,9 +11,9 @@ spec:
       paths:
       - path: /?(.*)
         backend:
-          serviceName: product-frontend-cluster-ip-svc
+          serviceName: product-frontend-service
           servicePort: 8080
       - path: /api/?(.*)
         backend:
-          serviceName: product-orch-cluster-ip-svc
+          serviceName: product-orch-service
           servicePort: 8080

@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: product-frontend-cluster-ip-svc
+  name: product-stock-service
   labels:
-    name: product-frontend-cluster-ip-svc
+    name: product-stock-service
 spec:
   ports:
   - port: 8080
     targetPort: 8080
     protocol: TCP
   selector:
-    app: product-frontend-deploy
+    app: product-stock-deployment
   type: ClusterIP

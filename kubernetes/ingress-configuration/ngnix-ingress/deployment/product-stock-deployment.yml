@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: product-stock-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: product-stock-deployment
+    spec:
+      containers:
+      - name: product-stock-deployment
+        image: souvikmukherjeedocker/shopping-app_product-stock-svc:v1
+        ports:
+        - containerPort: 8080
