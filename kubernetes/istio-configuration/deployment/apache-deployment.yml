@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: apache-deployment
-        image: gcr.io/tonal-carving-252503/products-istio-apache:latest
+        image: souvikmukherjeedocker/shopping-app_apache-load-balancer:v1
         ports:
         - containerPort: 80
         resources: {}
