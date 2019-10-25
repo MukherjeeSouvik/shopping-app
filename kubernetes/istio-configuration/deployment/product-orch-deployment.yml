@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: product-orch-deployment
+    version: "1.0"
+  name: product-orch-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-orch-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: product-orch-deployment
+    spec:
+      containers:
+      - name: product-orch-deployment
+        image: souvikmukherjeedocker/shopping-app_product-orch-svc:v1
+        ports:
+        - containerPort: 8080
+        resources: {}
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: cluster-ip-configuration
+        - name: STOCK_API_SCHEMA
+          value: http
+        - name: STOCK_API_HOST
+          value: product-stock-service.default.svc.cluster.local
+        - name: STOCK_API_PORT
+          value: '8080'
+        - name: PRODUCT_API_SCHEMA
+          value: http
+        - name: PRODUCT_API_HOST
+          value: product-detail-service.default.svc.cluster.local
+        - name: PRODUCT_API_PORT
+          value: '8080'
+status: {}
