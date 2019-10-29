@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: product-orch-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - apache-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api/products
+    rewrite:
+      uri: /product-orch-svc/products
+    route:
+    - destination:
+        port:
+          number: 8080
+        host: product-orch-service.default.svc.cluster.local
