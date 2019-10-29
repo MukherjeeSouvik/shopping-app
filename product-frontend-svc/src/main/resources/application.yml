@@ -18,7 +18,7 @@ services:
     readTimeout: 6000
     http-headers:
       "[Content-Type]": application/json
-#    base-path: /product-orch-svc
+    base-path: /product-orch-svc
     path: /products
     
 ---

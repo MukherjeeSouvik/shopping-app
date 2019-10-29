@@ -13,11 +13,9 @@ services:
   stock:
     schema: http
     host: localhost
-    port: 8080
-    # connectionTimeout: 4000
-    # readTimeout: 6000
-    connectionTimeout: 40000
-    readTimeout: 60000
+    port: 8081
+    connectionTimeout: 4000
+    readTimeout: 6000
     http-headers:
       "[Content-Type]": application/json
     base-path: /product-stock-svc
@@ -26,10 +24,8 @@ services:
     schema: http
     host: localhost
     port: 8080
-    # connectionTimeout: 4000
-    # readTimeout: 6000
-    connectionTimeout: 40000
-    readTimeout: 60000
+    connectionTimeout: 4000
+    readTimeout: 6000
     http-headers:
       "[Content-Type]": application/json
     base-path: /product-detail-svc
