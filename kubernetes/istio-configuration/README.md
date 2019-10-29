@@ -29,3 +29,14 @@ helm template install/kubernetes/helm/istio \
 kubectl get service -n istio-system
 
 kubectl get pods -n istio-system
+
+
+
+
+
+helm template install/kubernetes/helm/istio --name istio --namespace istio-system | kubectl delete -f -
+kubectl delete namespace istio-system
+Reference Sites ->
+https://cloud.google.com/istio/docs/how-to/installing-oss
+https://istio.io/docs/setup/platform-setup/gke/
+https://istio.io/docs/tasks/telemetry/metrics/using-istio-dashboard/
