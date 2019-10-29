@@ -27,6 +27,8 @@ kubectl get service -n istio-system
 
 kubectl get pods -n istio-system
 
+Open Issues:-> Default Gateway : 'no healthy upstream'. Routing working as expected.
+
 
 
 
