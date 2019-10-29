@@ -1,9 +1,6 @@
 gcloud config set project tonal-carving-252503
 
-gcloud container clusters create products-istio \
-    --machine-type=n1-standard-2 \
-    --num-nodes=4 \
-    --zone=us-central1-a
+gcloud container clusters create products-istio --machine-type=n1-standard-2 --num-nodes=4 --zone=us-central1-a
 
 gcloud container clusters get-credentials products-istio --zone us-central1-a
 
