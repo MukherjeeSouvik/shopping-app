@@ -1,3 +1,24 @@
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: ["configprops", "env","metrics", "promatheus", "health", "info", "threaddump"]
+  metrics:
+    enabled: false
+    export:
+      prometheus:
+        enabled: true
+    web:
+      server:
+        auto-time-requests: false
+    distribution:
+      percentiles:
+        all: 0.5, 0.7
+  prometheus:
+    enabled: true
+  server:
+    port: 8080
 spring:
   application:
     name: product-stock-svc

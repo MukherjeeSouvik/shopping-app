@@ -7,7 +7,7 @@ metadata:
     version: "1.0"
   name: product-detail-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: product-detail-deployment
@@ -20,9 +20,12 @@ spec:
     spec:
       containers:
       - name: product-detail-deployment
-        image: souvikmukherjeedocker/shopping-app_product-detail-svc:v1
+        # image: souvikmukherjeedocker/shopping-app_product-detail-svc:v1
+        image: gcr.io/tonal-carving-252503/product-detail-svc:v1
         ports:
         - containerPort: 8080
-        resources: {}
+        resources:
+          requests:
+            cpu: 200m
 status: {}
 

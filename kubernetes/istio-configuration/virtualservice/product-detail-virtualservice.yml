@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: product-detail-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - apache-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /product-detail-svc/
+    route:
+    - destination:
+        port:
+          number: 8080
+        host: product-detail-service.default.svc.cluster.local
+    fault:
+      delay:
+        fixed: 503
+        percent: 100
