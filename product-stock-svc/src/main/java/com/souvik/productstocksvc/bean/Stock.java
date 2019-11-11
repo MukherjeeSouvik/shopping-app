@@ -1,5 +1,7 @@
 package com.souvik.productstocksvc.bean;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -21,5 +23,5 @@ public class Stock {
 	private String productId;
 	private String sku;
 	private Long quantity;
-
+	private BigDecimal price;
 }

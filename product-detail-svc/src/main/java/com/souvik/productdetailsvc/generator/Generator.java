@@ -1,6 +1,5 @@
 package com.souvik.productdetailsvc.generator;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,11 +27,11 @@ public class Generator {
 		log.info("Generating Product Data");
 		
 		List<ProductDetails> products = Arrays.asList(
-				ProductDetails.builder().productId("1").name("Product-1").description("Product 1 description").price(BigDecimal.valueOf(45.56)).build(),
-				ProductDetails.builder().productId("2").name("Product-2").description("Product 2 description").price(BigDecimal.valueOf(45.55)).build(),
-				ProductDetails.builder().productId("3").name("Product-3").description("Product 3 description").price(BigDecimal.valueOf(45.54)).build(),
-				ProductDetails.builder().productId("4").name("Product-4").description("Product 4 description").price(BigDecimal.valueOf(45.53)).build(),
-				ProductDetails.builder().productId("5").name("Product-5").description("Product 5 description").price(BigDecimal.valueOf(45.52)).build()
+				ProductDetails.builder().productId("1").name("Product-1").description("Product 1 description").manufacturer("MAN1").build(),
+				ProductDetails.builder().productId("2").name("Product-2").description("Product 2 description").manufacturer("MAN1").build(),
+				ProductDetails.builder().productId("3").name("Product-3").description("Product 3 description").manufacturer("MAN1").build(),
+				ProductDetails.builder().productId("4").name("Product-4").description("Product 4 description").manufacturer("MAN1").build(),
+				ProductDetails.builder().productId("5").name("Product-5").description("Product 5 description").manufacturer("MAN1").build()
 			);
 		
 		repository.saveAll(products);

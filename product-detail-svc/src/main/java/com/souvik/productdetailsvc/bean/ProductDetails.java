@@ -1,7 +1,5 @@
 package com.souvik.productdetailsvc.bean;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -23,5 +21,5 @@ public class ProductDetails {
 	private String productId;
 	private String name;
 	private String description;
-	private BigDecimal price;
+	private String manufacturer;
 }

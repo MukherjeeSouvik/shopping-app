@@ -1,3 +1,14 @@
+spring:
+  application:
+    name: product-orch-svc
+  main:
+    banner-mode: "off"
+
+server:
+  port: 8080
+  servlet:
+    context-path: /product-orch-svc
+    
 management:
   endpoints:
     web:
@@ -5,7 +16,7 @@ management:
       exposure:
         include: ["configprops", "env","metrics", "promatheus", "health", "info", "threaddump"]
   metrics:
-    enabled: false
+    enabled: true
     export:
       prometheus:
         enabled: true
@@ -18,23 +29,10 @@ management:
   prometheus:
     enabled: true
   server:
-    port: 8080
-spring:
-  application:
-    name: product-orch-svc
-  main:
-    banner-mode: "off"
-
-server:
-  port: 8080
-  servlet:
-    context-path: /product-orch-svc
+    port: ${server.port}
 
 services:
   stock:
-    schema: http
-    host: localhost
-    port: 8081
     connectionTimeout: 4000
     readTimeout: 6000
     http-headers:
@@ -42,9 +40,6 @@ services:
     base-path: /product-stock-svc
     path: /stocks
   pd:
-    schema: http
-    host: localhost
-    port: 8080
     connectionTimeout: 4000
     readTimeout: 6000
     http-headers:
@@ -54,7 +49,7 @@ services:
     
 ---
 spring:
-  profiles: cluster-ip-configuration
+  profiles: k8s
   
 services:
   stock:
@@ -65,4 +60,21 @@ services:
     schema: ${PRODUCT_API_SCHEMA}
     host: ${PRODUCT_API_HOST}
     port: ${PRODUCT_API_PORT}
+    
+---
+spring:
+  profiles: local
+  
+server:
+  port: 8083
+
+services:
+  stock:
+    schema: http
+    host: localhost
+    port: 8082
+  pd:
+    schema: http
+    host: localhost
+    port: 8081
     

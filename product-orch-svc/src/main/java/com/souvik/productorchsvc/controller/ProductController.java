@@ -24,13 +24,13 @@ public class ProductController {
 	
 	@GetMapping("/products")
 	public ResponseEntity<List<Product>> getStocks() throws ProductOrchException {
-		log.info("Retrieving all product details");
+		log.info("Retrieving products");
 		return new ResponseEntity<List<Product>>(productService.getProducts(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/products/{productId}")
 	public ResponseEntity<Product> getStockById(@PathVariable("productId") String productId) throws ProductOrchException {
-		log.info("Retrieving product details for id {}", productId);
+		log.info("Retrieving product for id {}", productId);
 		return new ResponseEntity<Product>(productService.getProductById(productId), HttpStatus.OK);
 	}
 

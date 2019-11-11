@@ -1,3 +1,14 @@
+spring:
+  application:
+    name: product-frontend-svc
+  main:
+    banner-mode: "off"
+
+server:
+  port: 8080
+  servlet:
+    context-path: /product-frontend-svc
+    
 management:
   endpoints:
     web:
@@ -5,7 +16,7 @@ management:
       exposure:
         include: ["configprops", "env","metrics", "promatheus", "health", "info", "threaddump"]
   metrics:
-    enabled: false
+    enabled: true
     export:
       prometheus:
         enabled: true
@@ -18,23 +29,10 @@ management:
   prometheus:
     enabled: true
   server:
-    port: 8080
-spring:
-  application:
-    name: product-frontend-svc
-  main:
-    banner-mode: "off"
-
-server:
-  port: 8080
-  servlet:
-    context-path: /product-frontend-svc
+    port: ${server.port}
 
 services:
   productorch:
-    schema: http
-    host: localhost
-    port: 8080
     connectionTimeout: 4000
     readTimeout: 6000
     http-headers:
@@ -44,7 +42,7 @@ services:
     
 ---
 spring:
-  profiles: cluster-ip-configuration
+  profiles: k8s
   
 services:
   productorch:
@@ -52,4 +50,16 @@ services:
     host: ${PRODUCT_ORCH_HOST}
     port: ${PRODUCT_ORCH_PORT}
     
+---
+spring:
+  profiles: local
+  
+server:
+  port: 8084
 
+services:
+  productorch:
+    schema: http
+    host: localhost
+    port: 8083
+    

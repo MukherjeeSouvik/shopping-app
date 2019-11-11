@@ -29,20 +29,16 @@ public class ProductService {
 		 List<Product> products = new ArrayList<>();
 		 
 		 Map<String, ProductDetails> productDetails = productDetailsRepository.getProductDetailsMap();
-		 Map<String, Stock> stocks = stockRepository.getStockMap();
 		 
 		 if (!CollectionUtils.isEmpty(productDetails)) {
 			 products = productDetails.values()
 					 			.stream()
 				 				.map(pd -> {
-				 					Stock stock = stocks.get(pd.getProductId());
 				 					return Product.builder()
 				 							.productId(pd.getProductId())
 				 							.name(pd.getName())
 				 							.description(pd.getDescription())
-				 							.price(pd.getPrice())
-				 							.sku(stock.getSku())
-				 							.quantity(stock.getQuantity())
+				 							.manufacturer(pd.getManufacturer())
 				 							.build();
 				 				})
 				 				.collect(Collectors.toList());
@@ -58,9 +54,10 @@ public class ProductService {
 					.productId(pd.getProductId())
 					.name(pd.getName())
 					.description(pd.getDescription())
-					.price(pd.getPrice())
+					.manufacturer(pd.getManufacturer())
 					.sku(stock.getSku())
 					.quantity(stock.getQuantity())
+					.price(stock.getPrice())
 					.build();
 	}
 

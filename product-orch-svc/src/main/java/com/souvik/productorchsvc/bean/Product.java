@@ -2,6 +2,9 @@ package com.souvik.productorchsvc.bean;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,14 +12,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@JsonInclude(value = Include.NON_NULL)
 public class Product {
 	
 	private String productId;
-	private String sku;
-	private Long quantity;
-	
 	private String name;
 	private String description;
+	private String manufacturer;
+	private String sku;
+	private Long quantity;
 	private BigDecimal price;
+	
+	
+	
 
 }

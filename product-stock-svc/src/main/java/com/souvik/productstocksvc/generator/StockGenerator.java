@@ -1,5 +1,6 @@
 package com.souvik.productstocksvc.generator;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,11 +28,11 @@ public class StockGenerator {
 		log.info("Generating Stock Data");
 		
 		List<Stock> stocks = Arrays.asList(
-			Stock.builder().productId("1").sku("1234567890").quantity(50L).build(),
-			Stock.builder().productId("2").sku("1234567891").quantity(51L).build(),
-			Stock.builder().productId("3").sku("1234567892").quantity(52L).build(),
-			Stock.builder().productId("4").sku("1234567893").quantity(53L).build(),
-			Stock.builder().productId("5").sku("1234567894").quantity(54L).build()
+			Stock.builder().productId("1").sku("1234567890").quantity(50L).price(BigDecimal.valueOf(50D)).build(),
+			Stock.builder().productId("2").sku("1234567891").quantity(51L).price(BigDecimal.valueOf(50D)).build(),
+			Stock.builder().productId("3").sku("1234567892").quantity(52L).price(BigDecimal.valueOf(50D)).build(),
+			Stock.builder().productId("4").sku("1234567893").quantity(53L).price(BigDecimal.valueOf(50D)).build(),
+			Stock.builder().productId("5").sku("1234567894").quantity(54L).price(BigDecimal.valueOf(50D)).build()
 		);
 		
 		stockRepository.saveAll(stocks);

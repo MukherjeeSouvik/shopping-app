@@ -1,3 +1,14 @@
+spring:
+  application:
+    name: product-stock-svc
+  main:
+    banner-mode: "off"
+
+server:
+  port: 8080
+  servlet:
+    context-path: /product-stock-svc
+
 management:
   endpoints:
     web:
@@ -5,7 +16,7 @@ management:
       exposure:
         include: ["configprops", "env","metrics", "promatheus", "health", "info", "threaddump"]
   metrics:
-    enabled: false
+    enabled: true
     export:
       prometheus:
         enabled: true
@@ -18,14 +29,11 @@ management:
   prometheus:
     enabled: true
   server:
-    port: 8080
+    port: ${server.port}
+    
+---
 spring:
-  application:
-    name: product-stock-svc
-  main:
-    banner-mode: "off"
-
+  profiles: local
+  
 server:
-  port: 8080
-  servlet:
-    context-path: /product-stock-svc
+  port: 8082

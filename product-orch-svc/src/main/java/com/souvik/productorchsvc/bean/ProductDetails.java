@@ -1,7 +1,5 @@
 package com.souvik.productorchsvc.bean;
 
-import java.math.BigDecimal;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,5 +16,5 @@ public class ProductDetails {
 	private String productId;
 	private String name;
 	private String description;
-	private BigDecimal price;
+	private String manufacturer;
 }

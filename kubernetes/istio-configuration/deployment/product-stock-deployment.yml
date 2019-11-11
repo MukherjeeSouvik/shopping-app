@@ -21,7 +21,7 @@ spec:
       containers:
       - name: product-stock-deployment
         # image: souvikmukherjeedocker/shopping-app_product-stock-svc:v1
-        image: gcr.io/tonal-carving-252503/product-stock-svc:v1
+        image: gcr.io/tonal-carving-252503/product-stock-svc:v2
         ports:
         - containerPort: 8080
         resources:
