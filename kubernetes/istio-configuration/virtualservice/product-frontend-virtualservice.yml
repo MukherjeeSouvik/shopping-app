@@ -6,7 +6,7 @@ spec:
   hosts:
   - "*"
   gateways:
-  - apache-gateway
+  - product-gateway
   http:
   - match:
     - uri:
